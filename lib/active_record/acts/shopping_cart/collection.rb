@@ -11,7 +11,7 @@ module ActiveRecord
           if cart_item
             cumulative = cumulative == true ? cart_item.quantity : 0
             cart_item.quantity = (cumulative + quantity)
-            cart_item.price = 300
+            update_price_for(object, price)
             cart_item.save
             cart_item
           else
